@@ -6,33 +6,44 @@ Premium marketing landing page for elite sales coaching brand.
 
 ```
 /
-├── index.html              # Main file with SSI includes
-├── index-standalone.html   # Merged version (for local viewing)
-├── html/partials/          # HTML partials
-├── css/                    # Stylesheets
-│   ├── base.css           # Design tokens, reset, typography
-│   ├── components.css     # Reusable components
-│   └── page.css           # Section-specific styles
+├── index.template.html     # Template file with partial includes
+├── build/
+│   └── merge.js           # Build script to merge partials
+├── dist/                  # Output directory (generated)
+│   ├── index.html         # Merged HTML file
+│   ├── css/               # Copied stylesheets
+│   ├── js/                # Copied JavaScript
+│   └── assets/            # Copied assets
+├── html/partials/         # HTML partials
+├── css/                   # Stylesheets
+│   ├── base.css          # Design tokens, reset, typography
+│   ├── components.css    # Reusable components
+│   └── page.css          # Section-specific styles
 └── js/
-    └── main.js            # Navigation, smooth scroll, accordion, reveal
+    └── main.js           # Navigation, smooth scroll, accordion, reveal
 ```
 
-## Viewing the Page
+## Building the Site
 
-### Option 1: Standalone (No Server Required)
-Open `index-standalone.html` directly in your browser. This is a merged version of all partials.
+The site uses a build-time partial merge system compatible with Cloudflare Pages.
 
-### Option 2: With SSI Support (Production)
-Use a web server with Server Side Includes (SSI) support:
-- Apache with `mod_include`
-- Nginx with SSI module
-- Any server that processes `<!--#include file="..." -->` directives
-
-### Option 3: Merge Script
-Run the Python merge script to regenerate the standalone version:
+### Build Command
 ```bash
-python3 merge.py
+npm run build
 ```
+
+This will:
+1. Merge `index.template.html` with all partials from `html/partials/`
+2. Output the merged HTML to `dist/index.html`
+3. Copy `css/`, `js/`, and `assets/` to `dist/` for proper asset paths
+
+### Cloudflare Pages Deployment
+
+Set the build command in Cloudflare Pages:
+- **Build command**: `npm run build`
+- **Output directory**: `dist`
+
+The build system uses Node.js template syntax (`{{> partial.html}}`) which is processed at build time.
 
 ## Design System
 

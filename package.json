@@ -1,0 +1,10 @@
+{
+  "name": "untap-sales-potential",
+  "version": "1.0.0",
+  "description": "Elite sales coaching landing page",
+  "scripts": {
+    "build": "node build/merge.js"
+  },
+  "private": true
+}
+

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="currentColor">
+  <rect x="5" y="8" width="12" height="12" fill="#F25022"/>
+  <rect x="19" y="8" width="12" height="12" fill="#7FBA00"/>
+  <rect x="5" y="22" width="12" height="12" fill="#00A4EF"/>
+  <rect x="19" y="22" width="12" height="12" fill="#FFB900"/>
+  <text x="36" y="26" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="currentColor">Microsoft</text>
+</svg>
