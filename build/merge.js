@@ -54,5 +54,13 @@ console.log("Copying assets to dist...");
 copyDir(path.join(rootDir, "css"), path.join(distDir, "css"));
 copyDir(path.join(rootDir, "js"), path.join(distDir, "js"));
 copyDir(path.join(rootDir, "assets"), path.join(distDir, "assets"));
+
+// Copy _redirects file if it exists
+const redirectsPath = path.join(rootDir, "_redirects");
+if (fs.existsSync(redirectsPath)) {
+  fs.copyFileSync(redirectsPath, path.join(distDir, "_redirects"));
+  console.log("✓ Copied _redirects file");
+}
+
 console.log("✓ Build complete! Output in /dist");
 

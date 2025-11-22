@@ -35,5 +35,5 @@ yarn-error.log*
 .cache/
 
 # Standalone file (generated)
-index-standalone.html
+# index.html is now the standalone merged file
 
